@@ -14,8 +14,8 @@ class BranchGroup {
   BranchGroup() {
     side = getSide();
     float branchSize = branchGroupProgress * (1 + random(0.75));
-    branchWidth = 3 + 9 * branchSize;
-    startLength = 25 + 150 * branchSize;
+    branchWidth = 4 + 12 * branchSize;
+    startLength = 120 + 360 * branchSize;
     startAngle = -PI/2 + random(PI);
     recursions = getRecursions();
   }
@@ -57,7 +57,7 @@ class BranchGroup {
   void addTrunk() {
     rotate(startAngle);
     PVector startPoint = new PVector(0, 0);
-    PVector endPoint = new PVector(0, -200);
+    PVector endPoint = new PVector(0, -startLength);
     color branchColour = lerpColor(lightest, darkest, random(1));
     Branch root = new Branch(startPoint, endPoint, branchWidth, branchColour);
     branches.add(root);
