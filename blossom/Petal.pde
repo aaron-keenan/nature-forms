@@ -31,6 +31,7 @@ class Petal {
     petal = createGraphics(gradientSize, gradientSize);
     petal.beginDraw();
     petal.noStroke();
+    petal.fill(240);
     petal.background(0);
     petal.beginShape();
     for (PVector petalPoint : petalPoints) {
@@ -67,7 +68,7 @@ class Petal {
     for (int i = int(gradientSize); i >= 0; i--) {
       float gradientProgress = map(i, 0, gradientSize, 0, 1);
       color fillColour = lerpColor(lightest, darkest, gradientProgress);
-      gradient.fill(fillColour, 210);
+      gradient.fill(fillColour);
       gradient.ellipse(gradientCentre.x, gradientCentre.y, i, i);
     }
     gradient.endDraw();

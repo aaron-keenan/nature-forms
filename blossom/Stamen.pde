@@ -30,7 +30,7 @@ class Stamen {
     float antherSize = centreSize * (0.06 + random(0.02));
     color antherColour = lerpColor(antherColourA, antherColourB, random(1));
     noStroke();
-    fill(antherColour, 205);
+    fill(antherColour, 225);
     ellipse(endPoint.x, endPoint.y, antherSize, antherSize);
     popMatrix();
   }
