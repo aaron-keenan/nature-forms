@@ -44,7 +44,7 @@ class Flower {
     translate(position.x, position.y);
     for (int i = 0; i < totalPetals; i++) {
       float petalRotation = i * TWO_PI/totalPetals;
-      float petalDistance = centreSize * (1.9 + random(0.2));
+      float petalDistance = centreSize * (1.7 + random(0.2));
       pushMatrix();
         Petal petal = new Petal(centreSize, petalRotation, petalDistance);
         petals.add(petal);

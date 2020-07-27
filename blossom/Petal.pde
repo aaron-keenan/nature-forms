@@ -3,6 +3,7 @@ class Petal {
   int gradientSize;
   float rotation;
   float distanceFromCentre;
+  float elongation;
   ArrayList<PVector> petalPoints = new ArrayList<PVector>();
   int petalPointsTotal = 5;
   color lightest = color(255, 255, 248);
@@ -12,6 +13,7 @@ class Petal {
     centreSize = _size;
     rotation = _rotation;
     distanceFromCentre = _distanceFromCentre;
+    elongation = 1.05 + random(0.2);
   }
   
   void display() {
@@ -49,6 +51,7 @@ class Petal {
       float petalRadius = lerp(0.9 * centreSize, 1.25 * centreSize, random(1));
       PVector point = new PVector(petalRadius * sin(angle), petalRadius * cos(angle));
       point.add(centrePoint.x, centrePoint.y);
+      point.x *= elongation;
       petalPoints.add(point);
     }
     petalPoints.add(petalPoints.get(0));
@@ -60,7 +63,7 @@ class Petal {
   PGraphics makeGradient() {
     PGraphics gradient;
     PVector gradientCentre = new PVector(1.25 * centreSize + random(centreSize), 1.25 * centreSize/2 + random(centreSize));
-    gradientSize = 5 * int(centreSize);
+    gradientSize = 7 * int(centreSize);
     gradient = createGraphics(gradientSize, gradientSize);
     gradient.beginDraw();
     gradient.noStroke();
